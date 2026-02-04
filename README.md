@@ -19,7 +19,7 @@ This project implements an advanced conversational AI agent using **LangGraph**.
     ```
 
 3.  **Configure Environment**:
-    Create a `.env` file in the root directory (copy from `.env.example` if available) and add your OpenAI API key:
+    A `.env` file is already included in the repository. Please open the `.env` file in the project root and update it with your own OpenAI API key:
     ```env
     OPENAI_API_KEY=sk-...
     # Optional: Override default model (default is gpt-5-nano)
