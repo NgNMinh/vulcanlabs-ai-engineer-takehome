@@ -23,7 +23,6 @@ This project implements an advanced conversational AI agent using **LangGraph**.
     ```env
     OPENAI_API_KEY=sk-...
     # Optional: Override default model (default is gpt-5-nano)
-    LLM_MODEL_NAME=gpt-4o-mini
     ```
 
 ## 🎮 How to Run the Demo
