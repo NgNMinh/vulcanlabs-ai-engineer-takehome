@@ -5,10 +5,9 @@ class Settings(BaseSettings):
 
     OPENAI_API_KEY: str
 
-    TEXT_MODEL_NAME: str = "openai/gpt-5-nano"
-    SUMMARIZATION_MODEL_NAME: str = "openai/gpt-5-nano"
+    LLM_MODEL_NAME: str = "gpt-5-nano"
 
-    SUMMARY_TRIGGER_TOKENS: int = 10
-    RECENT_N: int = 1
+    SUMMARY_TRIGGER_TOKENS: int = 400
+    RECENT_N: int = 3
 
 settings = Settings()

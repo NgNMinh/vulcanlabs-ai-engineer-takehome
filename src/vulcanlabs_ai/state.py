@@ -1,17 +1,17 @@
 from langchain_core.messages.base import BaseMessage
 from langgraph.graph import MessagesState
 from pydantic import BaseModel, Field
+from typing import Optional
 
-from schema import QueryAmbiguityResult
 
 ###################
 # Structured Outputs
 ###################
 class SessionSummary(BaseModel):
-    topics: list[str] | None = Field(description="Main discussion topics")
-    key_facts: list[str] | None = Field(description="Important facts mentioned")
-    user_goals: list[str] | None = Field(description="User's stated or inferred goals")
-    summary_text: str = Field(description="Concise summary of the session")
+    topics: list[str] | None = Field(default=None, description="Main discussion topics")
+    key_facts: list[str] | None = Field(default=None, description="Important facts mentioned")
+    user_goals: list[str] | None = Field(default=None, description="User's stated or inferred goals")
+    summary_text: str = Field(default="", description="Concise summary of the session")
 
 class QueryAmbiguityResult(BaseModel):
     is_ambiguous: bool = Field(
@@ -26,13 +26,17 @@ class QueryAmbiguityResult(BaseModel):
     rewritten_query: Optional[str] = Field(
         default=None,
         description=(
-            "A proposed rewritten version of the query if ambiguity is detected."
+            "A rewritten version of the original query that resolves ambiguity by choosing a reasonable interpretation, without asking the user a question."
         )
     )
     
 class ClarifyingQuestionResult(BaseModel):
     needs_clarification: bool = Field(
-        description="Whether the system needs clarification from the use"
+        description="Whether the system needs clarification from the user"
+    )
+    reason: Optional[str] = Field(
+        default=None,
+        description="Short explanation of why clarification is needed"
     )
     questions: list[str] | None = Field(
         default=None,

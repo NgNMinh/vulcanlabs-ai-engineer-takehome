@@ -1,14 +1,12 @@
 # --- Session summary (structured output) ---
-SESSION_SUMMARY_SYSTEM = (
-    "You are a conversation summarizer. Output a structured summary with topics, key_facts, user_goals, and summary_text."
-)
+SESSION_SUMMARY_SYSTEM = "You are a conversation summarizer."
+
 SUMMARY_EXTEND_INSTRUCTION = (
     "This is the existing session summary:\n{summary_text}\n\n"
-    "Extend the summary by taking into account the new messages above."
+    "Extend the summary by taking into account the new messages provided in the conversation."
 )
 SUMMARY_CREATE_INSTRUCTION = (
-    "Create a structured summary of the conversation above between AI and the user. "
-    "The summary must capture all relevant topics, facts, and user goals."
+    "Create a summary of the provided conversation, capturing all relevant topics, facts, and user goals."
 )
 
 # --- Query ambiguity (structured output) ---
